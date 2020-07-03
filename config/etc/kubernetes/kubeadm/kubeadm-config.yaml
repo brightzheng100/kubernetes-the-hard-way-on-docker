@@ -1,0 +1,17 @@
+# Ref: https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1beta2
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: stable
+controlPlaneEndpoint: "k8s-lb0:6443"  # pointing to lb
+networking:
+  podSubnet: "10.32.0.0/12"           # weavenet default CIDR as I'm going to use it
+apiServer:
+  certSANs:                           # extra SANs as we're going to access cluster from laptop
+  - "localhost"
+  - "127.0.0.1"
+---
+# Ref: https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/kubelet/config/v1beta1/types.go
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+cgroupDriver: cgroupfs  # cgroupfs | systemd
+failSwapOn: false
