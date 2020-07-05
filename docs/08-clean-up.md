@@ -1,6 +1,6 @@
-# Cleaning UP
+# Cleaning Up
 
-To clearn up the env:
+To clean up the env:
 
 ```sh
 # delete the containers

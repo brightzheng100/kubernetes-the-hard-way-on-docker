@@ -12,7 +12,7 @@ docker cp k8s-master0:/etc/kubernetes/admin.conf ~/.kube/config-lab
 
 # We need to update the server as it mentions `server: https://k8s-lb0:6443`
 # so we need to get the port mapping, e.g. 6443/tcp -> 0.0.0.0:32775
-port="$( docker port k8s-lb0 | grep "6443/tcp" | cut -d":" -f2 )"
+port="$( docker port k8s-lb0 6443 | cut -d":" -f2 )"
 # In Mac, do this
 sed -i '' "s|server: https://k8s-lb0:6443|server: https://localhost:${port}|g" ~/.kube/config-lab
 # In Linux

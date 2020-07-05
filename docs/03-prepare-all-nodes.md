@@ -1,8 +1,10 @@
 # Preparing All Kubernetes Nodes
 
-All nodes are required to do some tuning and set up some requried tools.
+All Kubernetes nodes are required to do some tuning and set up some requried tools.
 
-It's recommended to log into all Kubernetes nodes (expect load balancers as they're not) and enable `iTerm2`'s `Toggle Broadcasting Input` feature, if you're using `iTerm2` like me, so that we can execute commands in one console and they will automatically broadcast to all others parallelly -- all the commands to be executed are the same in this lab.
+To log into containers, you may try the native `Docker` way: `docker exec -it <node_name> bash`, e.g. `docker exec -it k8s-master0 bash`.
+
+After logging into all the Kubernetes nodes (expect load balancer nodes as they're not), it's highly recommended to enable `iTerm2`'s `Toggle Broadcasting Input` feature, if you're using `iTerm2` like me, so that we can execute commands in one console and they will automatically broadcast to all others parallelly -- all the commands to be executed are the same in this section.
 
 But it's okay to execute the commands into following nodes one by one, if you don't mind the repetative work.
 
@@ -11,10 +13,6 @@ But it's okay to execute the commands into following nodes one by one, if you do
 - k8s-master2
 - k8s-worker0
 - k8s-worker1
-
-To log into containers, you may try:
-- The native `Docker` way: `docker exec -it <node_name> bash`, e.g. `docker exec -it k8s-lb0 bash`
-
 
 **All below steps will be executed within the node containers.**
 
@@ -43,8 +41,6 @@ sysctl --system
 ## Installing container runtime
 
 We're going to use `contaierd` & `runc` here. Other container runtimes may work as well.
-
-> Note: the `kind`-based image already has `containerd` and `runc` installed, but I still document/repeat the process here as eventually I will rebuild the image with only the bare minimum components to start with.
 
 ```sh
 # Define desired components version
@@ -133,10 +129,6 @@ EOF
 apt-get update
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
-
-kubelet --version                   # Kubernetes v1.18.5, as of writing
-kubeadm version -o short            # v1.18.5, as of writing
-kubectl version --client --short    # Client Version: v1.18.5, as of writing
 
 # Configure cgroup driver used by kubelet on control-plane node
 mkdir -p /var/lib/kubelet

@@ -1,8 +1,8 @@
 # Bootstrapping Control Plane
 
-We can bootstrap Kubernetes in any control plane nodes.
+We can bootstrap Kubernetes in any of the control plane nodes.
 
-Now let's pick one control plane node, say `k8s-master0`, to bootstrap.
+Let's pick one control plane node, say `k8s-master0`, to bootstrap.
 
 ## Pick one control plane to bootstrap
 
@@ -18,9 +18,9 @@ kind: ClusterConfiguration
 kubernetesVersion: stable
 controlPlaneEndpoint: "k8s-lb0:6443"  # pointing to lb
 networking:
-  podSubnet: "10.32.0.0/12"           # weavenet default CIDR as I'm going to use it
+  podSubnet: "10.32.0.0/12"           # the CIDR the CNI may prefer, here is weavenet
 apiServer:
-  certSANs:                           # extra SANs as we're going to access cluster from laptop
+  certSANs:                           # extra SANs as we eventually will access the cluster from laptop
   - "localhost"
   - "127.0.0.1"
 ---

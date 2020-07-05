@@ -16,6 +16,7 @@ There are two Docker images involved:
 We're going to use `kind`'s [base image](https://github.com/kubernetes-sigs/kind/tree/master/images/base) with some small changes:
 
 - Install extra components: `vim-tiny`
+- Remove some pre-installed components like `containerd`, as we will install them during the process
 - `mkdir /kind` to make the image happy as we don't use `kind create cluster` to automate the cluster creation process
 
 ```sh

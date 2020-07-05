@@ -1,5 +1,7 @@
 # Kubernetes The Hard Way on Docker
 
+![illustration](illustration.png)
+
 It's a must-have skill along the CKA journey by using not just `kubectl`, but administrator tools like `kubeadm` to build Kubernetes cluster from scratch.
 
 While reviewing the [`Kubernetes the Kubeadmin Way`](https://github.com/brightzheng100/kubernetes-the-kubeadm-way) I compiled last year, during my CKA preparation, well, I feel that it's quite costly on any of cloud providers and I won't suggest you to do so just for practice purposes.
@@ -9,7 +11,7 @@ There are a lot of great tools which can help you craft a Kubernetes cluster wit
 - **[kind](https://github.com/kubernetes-sigs/kind)**
 - **[K3d](https://github.com/rancher/k3d)**
 
-But, we want a **the hard way** instead of automated way so we can learn more.
+But, we want **the hard way** instead of automated way so we can learn more.
 
 That's the motivation of this repo and I'll guide you through to:
 
@@ -27,8 +29,8 @@ The target audience for this tutorial is someone planning to build highly availa
 
 * Working Laptop: MacBook Pro with macOS Catalina, but I believe it should work wherever Docker runs
 * Docker Desktop with Engine v19.03.8
-* [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) v1.18.x
-* [kubernetes](https://github.com/kubernetes/kubernetes) v1.8.x
+* [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) v1.18.5, as of writing
+* [kubernetes](https://github.com/kubernetes/kubernetes) v1.8.5, as of writing
 * [containerd](https://containerd.io/) v1.3.4
 * [runc](https://github.com/opencontainers/runc) v1.0.0-rc90
 * Any of the CNIs, like:

@@ -1,6 +1,6 @@
 # Installing CNI Plugin
 
-There are many Container Netowrking Interface (CNI) compliant plugins within the Kubernetes community.
+There are many Container Networking Interface (CNI) compliant plugins within the Kubernetes community.
 
 Any of the compliant CNI plugins should work for basic use cases and it's your job to figure out what is right for you.
 
