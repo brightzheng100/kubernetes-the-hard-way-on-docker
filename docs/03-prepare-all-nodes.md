@@ -6,7 +6,7 @@ To log into containers, you may try the native `Docker` way: `docker exec -it <n
 
 After logging into all the Kubernetes nodes (expect load balancer nodes as they're not), it's highly recommended to enable `iTerm2`'s `Toggle Broadcasting Input` feature, if you're using `iTerm2` like me, so that we can execute commands in one console and they will automatically broadcast to all others parallelly -- all the commands to be executed are the same in this section.
 
-But it's okay to execute the commands into following nodes one by one, if you don't mind the repetative work.
+But it's okay to execute the commands into following nodes one by one, if you don't mind the repetitive work.
 
 - k8s-master0
 - k8s-master1
@@ -14,7 +14,7 @@ But it's okay to execute the commands into following nodes one by one, if you do
 - k8s-worker0
 - k8s-worker1
 
-**All below steps will be executed within the node containers.**
+**All the following steps will be executed within the node containers.**
 
 
 ## Tuning sysctl in all nodes

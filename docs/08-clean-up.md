@@ -11,3 +11,7 @@ done
 # delete the custom network
 docker network rm lab
 ```
+
+Congrats! You've done the Kubernetes the hard way, with `Kubeadm`, on Docker, within exactly your laptop!
+
+Enjoy!
